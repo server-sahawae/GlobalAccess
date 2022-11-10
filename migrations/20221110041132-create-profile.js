@@ -31,6 +31,7 @@ module.exports = {
       },
       AddressId: {
         type: Sequelize.UUID,
+        references: { model: "addresses" },
       },
       createdAt: {
         allowNull: false,

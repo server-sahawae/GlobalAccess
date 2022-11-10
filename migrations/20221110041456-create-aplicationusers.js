@@ -10,9 +10,11 @@ module.exports = {
       },
       ApplicationId: {
         type: Sequelize.UUID,
+        references: { model: "applications" },
       },
       UserId: {
         type: Sequelize.UUID,
+        references: { model: "users" },
       },
       createdAt: {
         allowNull: false,

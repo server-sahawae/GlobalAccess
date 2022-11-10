@@ -19,6 +19,7 @@ module.exports = {
       },
       ProfileId: {
         type: Sequelize.UUID,
+        references: { model: "profiles" },
       },
       createdAt: {
         allowNull: false,
