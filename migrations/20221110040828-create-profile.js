@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("profiles", {
+    await queryInterface.createTable("Profiles", {
       id: {
         allowNull: false,
         primaryKey: true,
@@ -17,11 +17,16 @@ module.exports = {
       middleName: {
         type: Sequelize.STRING,
       },
+      idNumber: {
+        type: Sequelize.STRING,
+        unique: true,
+      },
       gender: {
         type: Sequelize.STRING,
       },
       phone: {
         type: Sequelize.STRING,
+        unique: true,
       },
       birthDate: {
         type: Sequelize.DATE,
@@ -29,9 +34,35 @@ module.exports = {
       image: {
         type: Sequelize.STRING,
       },
-      AddressId: {
+      address: {
+        type: Sequelize.STRING,
+      },
+      coordinates: {
+        type: Sequelize.GEOMETRY,
+      },
+      country: {
+        type: Sequelize.STRING,
+      },
+      province: {
+        type: Sequelize.STRING,
+      },
+      city: {
+        type: Sequelize.STRING,
+      },
+      district: {
+        type: Sequelize.STRING,
+      },
+      ward: {
+        type: Sequelize.STRING,
+      },
+      postalcode: {
+        type: Sequelize.STRING,
+      },
+      UserId: {
         type: Sequelize.UUID,
-        references: { model: "addresses" },
+        allowNull: false,
+        references: { model: "Users" },
+        onDelete: "cascade",
       },
       createdAt: {
         allowNull: false,
@@ -41,9 +72,12 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
+      deletedAt: {
+        type: Sequelize.DATE,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("profiles");
+    await queryInterface.dropTable("Profiles");
   },
 };

@@ -1,0 +1,225 @@
+{
+  "AccessUsers": [
+    {
+      "id": "f5507284-21f6-4289-9d7b-ce196d97f768",
+      "UserId": "4b18d342-e5f8-4618-b50f-ddace6b26cc1",
+      "ApplicationId": "cf9f41e0-eee8-4d55-a825-64fcd8ca2122",
+      "CompanyId": "ce9dda0a-720e-11ed-b8fb-f07959612163",
+      "RoleId": "e84fd8d0-921d-4aab-a5d0-72e50e813bc5",
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52"
+    }
+  ],
+  "Addresses": [
+    {
+      "id": "03029101-d213-4186-9d90-2c714abca75f",
+      "createdAt": "2022-11-29T23:16:30.000Z",
+      "updatedAt": "2022-11-29T23:16:30.000Z",
+      "deletedAt": null
+    },
+    {
+      "id": "f3cd72ad-aa98-4da1-8604-2788f2ab43af",
+      "createdAt": "2022-11-29T23:16:30.000Z",
+      "updatedAt": "2022-11-29T23:16:30.000Z",
+      "deletedAt": null
+    },
+    {
+      "id": "e310b86a-ed20-4a26-a6e7-49b9da999e79",
+      "createdAt": "2023-01-02T03:36:22.000Z",
+      "updatedAt": "2023-01-02T03:36:22.000Z",
+      "deletedAt": null
+    }
+  ],
+  "Applications": [
+    {
+      "id": "4ea7e682-9016-421b-94c0-73d2e12df422",
+      "RoleLevel": 1,
+      "name": "Global Access",
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52"
+    },
+    {
+      "id": "cf9f41e0-eee8-4d55-a825-64fcd8ca2122",
+      "RoleLevel": 1,
+      "name": "Company Profile",
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52"
+    }
+  ],
+  "AccessCompanies": [
+    {
+      "id": "69adac1f-8bf5-4592-ac70-b130ce1e8255",
+      "ApplicationId": "cf9f41e0-eee8-4d55-a825-64fcd8ca2122",
+      "CompanyId": "13258b2f-703f-11ed-b8fb-f07959612163",
+
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52"
+    },
+    {
+      "id": "1b7a056b-f174-4c0a-b81d-25308183944d",
+      "ApplicationId": "cf9f41e0-eee8-4d55-a825-64fcd8ca2122",
+      "CompanyId": "ce9dda0a-720e-11ed-b8fb-f07959612163",
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52"
+    }
+  ],
+  "ApplicationVersions": [
+    {
+      "id": "63f57048-efed-4518-bd42-f6b4e1b10b79",
+      "version": "v1.0",
+      "ApplicationId": "4ea7e682-9016-421b-94c0-73d2e12df422",
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52"
+    },
+    {
+      "id": "8a6cd880-73fa-42a4-91d4-457159f3d0d8",
+      "version": "v1.0",
+      "ApplicationId": "cf9f41e0-eee8-4d55-a825-64fcd8ca2122",
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52"
+    },
+    {
+      "id": "e99aa250-855c-45d1-8daa-1f29040c624b",
+      "version": "v2.0",
+      "ApplicationId": "4ea7e682-9016-421b-94c0-73d2e12df422",
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52"
+    },
+    {
+      "id": "87062792-30d0-4cff-b728-cb8af4d9b85b",
+      "version": "v2.0",
+      "ApplicationId": "cf9f41e0-eee8-4d55-a825-64fcd8ca2122",
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52"
+    }
+  ],
+  "Companies": [
+    {
+      "id": "13258b2f-703f-11ed-b8fb-f07959612163",
+      "name": "HQ",
+      "phone": "082218000193",
+      "UserId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "address": "Jalan Jambu No.10",
+      "country": "Indonesia",
+      "Province": "32",
+      "City": "3212",
+      "District": "3212150",
+      "Ward": "3212150012",
+      "coordinates": null,
+      "postalcode": null,
+      "createdAt": "2022-11-29T23:16:30.000Z",
+      "updatedAt": "2022-11-29T23:16:30.000Z",
+      "deletedAt": null,
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52"
+    },
+    {
+      "id": "ce9dda0a-720e-11ed-b8fb-f07959612163",
+      "name": "Sekolah Tinggi Agama Islam Sayid Sabiq Indramayu",
+      "phone": "0234274222",
+      "UserId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "address": "Jalan Raya Panyindangan Wetan No.1",
+      "country": "Indonesia",
+      "Province": "32",
+      "City": "3212",
+      "District": "3212160",
+      "Ward": "3212160009",
+      "coordinates": null,
+      "postalcode": null,
+      "createdAt": "2022-11-29T23:16:30.000Z",
+      "updatedAt": "2022-11-29T23:16:30.000Z",
+      "deletedAt": null,
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52"
+    },
+    {
+      "id": "96f57374-969c-4908-99a2-4fd57295e855",
+      "name": "Warga Indramayu",
+      "phone": "082218000193",
+      "UserId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "address": "Jl. Ir. H. Juanda No.1,",
+      "coordinates": null,
+      "country": "Indonesia",
+      "Province": "32",
+      "City": "3212",
+      "District": "3212150",
+      "Ward": "3212150006",
+      "postalcode": "45218",
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "createdAt": "2022-11-29T23:16:30.000Z",
+      "updatedAt": "2022-11-29T23:16:30.000Z",
+      "deletedAt": null
+    }
+  ],
+  "Profiles": [
+    {
+      "id": "ae739436-2416-4862-a07a-e28e2a73e742",
+      "firstName": "Saha",
+      "lastName": "Waenya",
+      "middleName": "-",
+      "gender": "male",
+      "phone": "082218000193",
+      "birthDate": null,
+      "image": "f82dde2d-ddef-4d1b-bd35-332178860b1f.jpg",
+      "UserId": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "address": "Jalan Jambu No.10",
+      "country": "Indonesia",
+      "Province": "32",
+      "City": "3212",
+      "District": "3212150",
+      "Ward": "3212150012",
+      "coordinates": null,
+      "postalcode": null,
+      "createdAt": "2022-11-29T23:16:30.000Z",
+      "updatedAt": "2022-11-29T23:16:30.000Z",
+      "deletedAt": null
+    },
+    {
+      "id": "8976d92b-8b9c-4db9-b8ca-125885ab0df5",
+      "firstName": "Natya",
+      "lastName": "Rahmadiyanti",
+      "middleName": "-",
+      "gender": "female",
+      "phone": "085720574688",
+      "birthDate": null,
+      "image": "f82dde2d-ddef-4d1b-bd35-332178860b1f.jpg",
+      "UserId": "4b18d342-e5f8-4618-b50f-ddace6b26cc1",
+      "address": "Jalan Jambu No.10",
+      "country": "Indonesia",
+      "Province": "32",
+      "City": "3212",
+      "District": "3212150",
+      "Ward": "3212150012",
+      "coordinates": null,
+      "postalcode": null,
+      "createdAt": "2022-11-29T23:16:30.000Z",
+      "updatedAt": "2022-11-29T23:16:30.000Z",
+      "deletedAt": null
+    }
+  ],
+  "Role": [
+    {
+      "id": "e84fd8d0-921d-4aab-a5d0-72e50e813bc5",
+      "name": "admin",
+      "level": 1,
+      "AccessCompaniesId": "1b7a056b-f174-4c0a-b81d-25308183944d"
+    },
+    {
+      "id": "4b06132d-8474-4b4f-8d56-340c66fc85bd",
+      "name": "Dosen",
+      "level": 2,
+      "AccessCompaniesId": "1b7a056b-f174-4c0a-b81d-25308183944d"
+    }
+  ],
+  "Users": [
+    {
+      "id": "2a8c1619-41e1-4ac5-990a-2069276e9d52",
+      "username": "sahawae",
+      "email": "saha.waenya@gmail.com",
+      "password": 123456,
+      "createdAt": "2022-11-29T23:16:30.000Z",
+      "updatedAt": "2022-11-29T23:16:30.000Z",
+      "deletedAt": null,
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52"
+    },
+    {
+      "id": "4b18d342-e5f8-4618-b50f-ddace6b26cc1",
+      "username": "sahawaev2",
+      "email": "saha.waenyav2@gmail.com",
+      "password": 123456,
+      "createdAt": "2022-11-29T23:16:30.000Z",
+      "updatedAt": "2022-11-29T23:16:30.000Z",
+      "deletedAt": null,
+      "CreatorId": "2a8c1619-41e1-4ac5-990a-2069276e9d52"
+    }
+  ]
+}

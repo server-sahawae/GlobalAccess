@@ -1,7 +1,7 @@
 "use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("aplicationusers", {
+    await queryInterface.createTable("AccessCompanies", {
       id: {
         allowNull: false,
         primaryKey: true,
@@ -10,12 +10,16 @@ module.exports = {
       },
       ApplicationId: {
         type: Sequelize.UUID,
-        references: { model: "applications" },
+        allowNull: false,
+        references: { model: "Applications" },
       },
-      UserId: {
+      CompanyId: {
         type: Sequelize.UUID,
-        references: { model: "users" },
+        allowNull: false,
+        references: { model: "Companies" },
+        onDelete: "cascade",
       },
+
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
@@ -24,9 +28,17 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
+      deletedAt: {
+        type: Sequelize.DATE,
+      },
+      CreatorId: {
+        allowNull: false,
+        type: Sequelize.UUID,
+        references: { model: "Users", key: "id" },
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("aplicationusers");
+    await queryInterface.dropTable("AccessCompanies");
   },
 };

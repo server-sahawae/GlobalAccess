@@ -1,18 +1,22 @@
 "use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("applications", {
+    await queryInterface.createTable("ApplicationVersions", {
       id: {
         allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
       },
-      name: {
-        type: Sequelize.STRING,
-      },
       version: {
         type: Sequelize.STRING,
+        allowNull: false,
+      },
+      ApplicationId: {
+        type: Sequelize.UUID,
+        allowNull: false,
+        references: { model: "Applications" },
+        onDelete: "cascade",
       },
       createdAt: {
         allowNull: false,
@@ -22,9 +26,17 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
       },
+      deletedAt: {
+        type: Sequelize.DATE,
+      },
+      CreatorId: {
+        allowNull: false,
+        type: Sequelize.UUID,
+        references: { model: "Users", key: "id" },
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("applications");
+    await queryInterface.dropTable("ApplicationVersions");
   },
 };
