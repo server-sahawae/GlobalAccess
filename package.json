@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app",
-    "start": "node app"
+    "start": "node app",
+    "seqMigrate": "npx sequelize db:migrate",
+    "seqSeed":"nps sequelize db:seed:all",
+    "seqUndoMigrate":"npx sequelize db:migrate:undo:all"
   },
   "repository": {
     "type": "git",
