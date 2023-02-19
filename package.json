@@ -8,8 +8,8 @@
     "dev": "nodemon app",
     "start": "node app",
     "seqMigrate": "npx sequelize db:migrate",
-    "seqSeed":"nps sequelize db:seed:all",
-    "seqUndoMigrate":"npx sequelize db:migrate:undo:all"
+    "seqSeed": "npx sequelize db:seed:all",
+    "seqUndoMigrate": "npx sequelize db:migrate:undo:all"
   },
   "repository": {
     "type": "git",
