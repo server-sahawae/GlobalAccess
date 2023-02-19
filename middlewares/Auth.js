@@ -60,9 +60,9 @@ async function CheckUserDetail(req, res, next) {
 
 async function CheckAnyToken(req, res, next) {
   try {
-    console.log("=======================");
+    console.log("+++++++++++++++++++++++");
+    console.log(req.headers.access_token);
     req.access = verifyToken(req.headers.access_token);
-    console.log(req.access);
     console.log("CHECK ANY TOKEN");
     const { UserId: id, password } = req.access;
     console.log({ id, password });

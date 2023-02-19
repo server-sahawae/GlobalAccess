@@ -7,9 +7,7 @@ module.exports = {
     database: "globalaccess_development",
     host: "127.0.0.1",
     dialect: "mysql",
-    dialectOptions: {
-      " useUTC": false,
-    },
+
     timezone: "+07:00",
   },
   test: {
@@ -18,9 +16,7 @@ module.exports = {
     database: "database_test",
     host: "127.0.0.1",
     dialect: "mysql",
-    dialectOptions: {
-      " useUTC": false,
-    },
+
     timezone: "+07:00",
   },
   production: {
@@ -29,9 +25,7 @@ module.exports = {
     database: "proj9117_GlobalAccess",
     host: "127.0.0.1",
     dialect: "mysql",
-    dialectOptions: {
-      " useUTC": false,
-    },
+
     timezone: "+07:00",
   },
 };
