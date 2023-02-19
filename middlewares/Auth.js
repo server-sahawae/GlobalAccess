@@ -69,7 +69,7 @@ async function CheckAnyToken(req, res, next) {
     const checkUserPassword = await User.findOne({
       where: { [Op.and]: [{ id }, { password }] },
     });
-    console.log({ passwordDatabase: checkUserPassword?.password, password });
+    // console.log({ passwordDatabase: checkUserPassword?.password, password });
     if (!checkUserPassword) throw { name: UNAUTHORIZED };
     console.log("=======================");
 
