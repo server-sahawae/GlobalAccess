@@ -61,7 +61,9 @@ async function CheckUserDetail(req, res, next) {
 async function CheckAnyToken(req, res, next) {
   try {
     console.log("+++++++++++++++++++++++");
-    req.access = verifyToken(req.headers.access_token);
+    console.log(req.headers.access_token);
+    if (req.headers.access_token)
+      req.access = verifyToken(req.headers.access_token);
     console.log("CHECK ANY TOKEN");
     const { UserId: id, password } = req.access;
     const checkUserPassword = await User.findOne({
