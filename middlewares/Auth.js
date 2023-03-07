@@ -61,31 +61,38 @@ async function CheckUserDetail(req, res, next) {
 async function CheckAnyToken(req, res, next) {
   try {
     console.log("+++++++++++++++++++++++");
-    console.log(req.headers.access_token);
     req.access = verifyToken(req.headers.access_token);
     console.log("CHECK ANY TOKEN");
     const { UserId: id, password } = req.access;
-    console.log({ id, password });
     const checkUserPassword = await User.findOne({
       where: { [Op.and]: [{ id }, { password }] },
     });
-    // console.log({ passwordDatabase: checkUserPassword?.password, password });
     if (!checkUserPassword) throw { name: UNAUTHORIZED };
-    console.log("=======================");
+    console.log("+++++++++++++++++++++++");
 
+    console.log(req.access.UserId);
     next();
   } catch (error) {
-    console.log(error);
+    console.log(error.name);
     next(error);
   }
 }
 
-async function AllowedCompanyAccess(req, res, next) {
+async function AllowedApplicationAccess(req, res, next) {
   try {
-  } catch (error) {}
+    console.log("check application access");
+    const { applicationid: id } = req.headers;
+    const data = await Application.findOne({ where: { id } });
+    console.log("------------------ check application done");
+    if (!data) throw { name: UNAUTHORIZED };
+    next();
+  } catch (error) {
+    next(error);
+  }
 }
 module.exports = {
   CheckApplicationVersion,
   CheckUserDetail,
   CheckAnyToken,
+  AllowedApplicationAccess,
 };

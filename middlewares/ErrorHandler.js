@@ -12,6 +12,8 @@ const {
   BAD_REQUEST,
   VERSION_OUTDATED,
   LOGIN_ATTEMPS_FAILED,
+  TYPE_ERROR,
+  NO_DATA,
 } = require("../constants/ErrorKeys");
 
 module.exports = function ErrorHandler(err, req, res, next) {
@@ -106,6 +108,20 @@ module.exports = function ErrorHandler(err, req, res, next) {
         code: 503,
         name: LOGIN_ATTEMPS_FAILED,
         message: "Wait 5 minutes for another login attemps",
+      };
+      break;
+    case TYPE_ERROR:
+      data = {
+        code: 503,
+        name: TYPE_ERROR,
+        message: "Something is missing!",
+      };
+      break;
+    case NO_DATA:
+      data = {
+        code: 503,
+        name: NO_DATA,
+        message: "Data not found!",
       };
       break;
     default:

@@ -14,7 +14,6 @@ module.exports = class Controller {
     try {
       console.log("Checking user token!");
       const { access_token } = req.body;
-      console.log(access_token);
       if (!access_token) throw { name: BAD_REQUEST };
       const data = verifyToken(access_token);
       if (!data.UserId) throw { name: UNAUTHORIZED };

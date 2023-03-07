@@ -11,6 +11,8 @@ const PHONE_DUPLICATE = "PhoneDuplicate";
 const IDNUMBER_DUPLICATE = "IDNumberDuplicate";
 const INPUT_EMAIL_PHONE_USERNAME = "BadRequestEmailPhoneUsername";
 const LOGIN_ATTEMPS_FAILED = "LoginFailed";
+const TYPE_ERROR = "TypeError";
+const NO_DATA = "dataNotFound";
 
 module.exports = {
   APPLICATION_INVALID,
@@ -26,4 +28,6 @@ module.exports = {
   PHONE_DUPLICATE,
   IDNUMBER_DUPLICATE,
   LOGIN_ATTEMPS_FAILED,
+  TYPE_ERROR,
+  NO_DATA,
 };
