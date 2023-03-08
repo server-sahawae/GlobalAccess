@@ -1,13 +1,10 @@
-const fs = require("fs");
-
 module.exports = {
   development: {
-    username: "root",
-    password: null,
-    database: "globalaccess_development",
-    host: "127.0.0.1",
+    username: process.env.DATABASE_USERNAME,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE_NAME,
+    host: "217.21.72.148",
     dialect: "mysql",
-
     timezone: "+07:00",
   },
   test: {
@@ -20,9 +17,9 @@ module.exports = {
     timezone: "+07:00",
   },
   production: {
-    username: "proj9117_sahawae",
-    password: "sabiqnatya25",
-    database: "proj9117_GlobalAccess",
+    username: process.env.DATABASE_USERNAME,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE_NAME,
     host: "127.0.0.1",
     dialect: "mysql",
 

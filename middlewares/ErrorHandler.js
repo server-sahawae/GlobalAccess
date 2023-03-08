@@ -126,9 +126,11 @@ module.exports = function ErrorHandler(err, req, res, next) {
       break;
     default:
       data = {
-        code: 500,
-        name: "ISE",
-        message: "INTERNAL SERVER ERROR",
+        code: err?.response?.status || 500,
+        name: err?.message || "ISE",
+        message: Array.isArray(err?.errors)
+          ? err.errors?.map((el) => el.message)
+          : err?.response?.data?.message || "INTERNAL SERVER ERROR",
       };
       break;
   }

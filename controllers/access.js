@@ -139,10 +139,13 @@ module.exports = class Controller {
 
         const dataRole = await AccessCompanies.findOne({
           where: {
-            [Op.and]: [{ CompanyId }, { ApplicationId }],
+            CompanyId,
+            ApplicationId,
           },
           include: [{ model: Role, where: { level: RoleLevel } }],
         });
+        console.log(dataRole);
+        // console.log(CompanyId, ApplicationId, "+++++++++++++++++++++++");
         const access_token = createToken({
           ...req.access,
           Company: dataCompany,
