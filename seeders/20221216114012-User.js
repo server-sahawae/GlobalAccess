@@ -10,7 +10,6 @@ module.exports = {
       el.updatedAt = new Date(Date.now() - 604800000);
       return el;
     });
-    // console.log(data);
     await queryInterface.bulkInsert("Users", data);
   },
 

@@ -17,7 +17,6 @@ module.exports = {
           return el;
         }
       });
-    console.log(data);
     await queryInterface.bulkInsert("ApplicationVersions", data);
   },
 

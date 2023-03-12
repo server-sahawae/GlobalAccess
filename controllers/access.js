@@ -19,6 +19,7 @@ const {
 } = require("../constants/ErrorKeys");
 const { compareHash } = require("../helpers/bcrypt");
 const ObjectFilter = require("../helpers/ObjectFilter");
+const { loggerInfo } = require("../helpers/loggerDebug");
 module.exports = class Controller {
   static async LoginUser(req, res, next) {
     try {
@@ -82,13 +83,13 @@ module.exports = class Controller {
       const access_token = createToken(result, exp);
       res.status(200).json({ access_token });
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
 
   static async getAccessUser(req, res, next) {
     try {
+      loggerInfo("GET ACCESS USER");
       const { RoleLevel, id: ApplicationId } = req.access.Application;
 
       const userDetail = verifyToken(req.headers.access_token);
@@ -114,8 +115,7 @@ module.exports = class Controller {
           ],
         });
         const accessUser = dataAccessUser.filter((el) => el.Role.id);
-        console.log("===============ACCESS USER=========");
-        // console.log(accessUser);
+
         if (accessUser.length < 1) throw { name: UNAUTHORIZED };
         const result = accessUser.map((el) => {
           return { CompanyId: el.Company.id, name: el.Company.name };
@@ -123,16 +123,15 @@ module.exports = class Controller {
         res.status(200).json(result);
       }
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
 
   static async postTokenUserAndCompany(req, res, next) {
     try {
+      loggerInfo("POST TOKEN USER AND COMPANY");
       const { RoleLevel, id: ApplicationId } = req.access.Application;
       const { CompanyId } = req.body;
-      console.log(CompanyId, "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
       const userDetail = verifyToken(req.headers.access_token);
       if (userDetail.UserId == "2a8c1619-41e1-4ac5-990a-2069276e9d52") {
         const dataCompany = await Company.findOne({ where: { id: CompanyId } });
@@ -144,22 +143,12 @@ module.exports = class Controller {
           },
           include: [{ model: Role, where: { level: RoleLevel } }],
         });
-        console.log(dataRole);
-        // console.log(CompanyId, ApplicationId, "+++++++++++++++++++++++");
+
         const access_token = createToken({
           ...req.access,
           Company: dataCompany,
           Role: dataRole.dataValues.Roles[0].dataValues,
         });
-
-        console.log("=====================");
-        // console.log(dataRole.dataValues.Roles[0].dataValues);
-        // console.log({
-        //   Company: ObjectFilter(dataCompany.dataValues),
-        //   Profile: ObjectFilter(req.access.Profile),
-        //   Role: dataRole.dataValues.Roles[0].dataValues.name,
-        // });
-        console.log("=====================");
 
         res.status(200).json({
           Company: ObjectFilter(dataCompany.dataValues),
@@ -197,14 +186,7 @@ module.exports = class Controller {
           Company: dataCompany,
           Role: accessUser.Role.dataValues,
         });
-        console.log("=====================");
-        console.log(accessUser.Role.dataValues);
-        // console.log({
-        //   Company: ObjectFilter(dataCompany.dataValues),
-        //   Profile: ObjectFilter(req.access.Profile),
-        //   Role: ObjectFilter(accessUser.Role.dataValues),
-        // });
-        console.log("=====================");
+
         res.status(200).json({
           Company: ObjectFilter(dataCompany.dataValues),
           Profile: ObjectFilter({
@@ -215,7 +197,6 @@ module.exports = class Controller {
         });
       }
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }

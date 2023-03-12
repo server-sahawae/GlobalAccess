@@ -4,7 +4,6 @@ async function LoginUser(req, res, next) {
   try {
     const MailAttemps = req.session["MailAttemps"];
     if (MailAttemps < 3 || !MailAttemps) {
-      //   console.log("masuk");
       req.session["MailAttemps"] = !req.session["MailAttemps"]
         ? 1
         : req.session["MailAttemps"] + 1;
@@ -16,10 +15,8 @@ async function LoginUser(req, res, next) {
     } else if (req.session["isLoginFailed"]) {
       throw { name: LOGIN_ATTEMPS_FAILED, exp: req.session.cookie.expires };
     }
-    // console.log(req.session["MailAttemps"]);
     next();
   } catch (error) {
-    console.log(error);
     next(error);
   }
 }
