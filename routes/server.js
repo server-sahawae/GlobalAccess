@@ -20,7 +20,7 @@ routes.get(
 );
 routes.get(
   "/:UserId",
-  CheckAnyToken,
+  // CheckAnyToken,
   AllowedApplicationAccess,
   Controller.getUserName
 );
