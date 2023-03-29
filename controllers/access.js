@@ -23,6 +23,7 @@ const { loggerInfo } = require("../helpers/loggerDebug");
 module.exports = class Controller {
   static async LoginUser(req, res, next) {
     try {
+      loggerInfo("LOGIN USER");
       const { username, password, exp } = req.body;
       if (!username || !password) throw { name: USER_INVALID };
 
