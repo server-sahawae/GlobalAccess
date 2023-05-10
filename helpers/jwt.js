@@ -6,15 +6,10 @@ const keys = process.env.JWT_TOKEN;
 function createToken(data, staySignedIn) {
   let result;
   if (!staySignedIn) {
-    if (data.exp) {
-      result = jwt.sign({ ...data, staySignedIn: false }, keys);
-    } else {
-      result = jwt.sign({ ...data, staySignedIn: false }, keys, {
-        expiresIn: "24h",
-      });
-    }
+    result = jwt.sign({ ...data, staySignedIn: false }, keys, {
+      expiresIn: "24h",
+    });
   } else result = jwt.sign({ ...data, staySignedIn }, keys);
-
   return encryptData(result);
 }
 

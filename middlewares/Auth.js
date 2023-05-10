@@ -1,32 +1,42 @@
 const { Op } = require("sequelize");
+const redis = require("../config/redisConfig");
 
 const {
   UNAUTHORIZED,
   APPLICATION_INVALID,
-  BAD_REQUEST,
+
   VERSION_OUTDATED,
 } = require("../constants/ErrorKeys");
 const { verifyToken } = require("../helpers/jwt");
+const { loggerDebug } = require("../helpers/loggerDebug");
 const { Application, ApplicationVersions, User } = require("../models");
 
 async function CheckApplicationVersion(req, res, next) {
   try {
     const { applicationversionsid: id } = req.headers;
-    const appVersion = await ApplicationVersions.findOne({
-      where: { id },
-      order: [["updatedAt", "DESC"]],
-    });
-    if (!appVersion) throw { name: APPLICATION_INVALID };
-    const LatestVersion = await ApplicationVersions.findOne({
-      where: { ApplicationId: appVersion.ApplicationId },
-      order: [["updatedAt", "DESC"]],
-    });
-    if (appVersion.id != LatestVersion.id) throw { name: VERSION_OUTDATED };
-    const appDetail = await Application.findOne({
-      where: { id: LatestVersion.ApplicationId },
-    });
-
-    req.access = { ...req.access, Application: appDetail.dataValues };
+    const item = await redis.get(`CheckApplicationVersion:${id}`);
+    if (!item) {
+      const appVersion = await ApplicationVersions.findOne({
+        where: { id },
+        order: [["updatedAt", "DESC"]],
+      });
+      if (!appVersion) throw { name: APPLICATION_INVALID };
+      const LatestVersion = await ApplicationVersions.findOne({
+        where: { ApplicationId: appVersion.ApplicationId },
+        order: [["updatedAt", "DESC"]],
+      });
+      if (appVersion.id != LatestVersion.id) throw { name: VERSION_OUTDATED };
+      const appDetail = await Application.findOne({
+        where: { id: LatestVersion.ApplicationId },
+      });
+      loggerDebug(`SET REDIS: CheckApplicationVersion:${id}`);
+      await redis.set(
+        `CheckApplicationVersion:${id}`,
+        JSON.stringify(appDetail),
+        { EX: 60 * 60 * 24, NX: true }
+      );
+      req.access = { ...req.access, Application: appDetail.dataValues };
+    } else req.access = { ...req.access, Application: { ...JSON.parse(item) } };
 
     next();
   } catch (error) {

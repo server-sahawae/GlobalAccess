@@ -82,6 +82,7 @@ module.exports = class Controller {
         CreatorId,
       };
       const access_token = createToken(result, exp);
+      console.log(verifyToken(access_token));
       res.status(200).json({ access_token });
     } catch (error) {
       next(error);

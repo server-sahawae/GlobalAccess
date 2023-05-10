@@ -10,7 +10,7 @@ async function LoginUser(req, res, next) {
       if (!MailAttemps) req.session.cookie.expires = 20000;
     } else if (!req.session["isLoginFailed"]) {
       req.session["isLoginFailed"] = true;
-      req.session.cookie.expires = 10000;
+      req.session.cookie.expires = 5 * 60 * 1000;
       throw { name: LOGIN_ATTEMPS_FAILED, exp: req.session.cookie.expires };
     } else if (req.session["isLoginFailed"]) {
       throw { name: LOGIN_ATTEMPS_FAILED, exp: req.session.cookie.expires };
